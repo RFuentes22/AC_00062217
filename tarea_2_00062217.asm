@@ -29,3 +29,35 @@ section .data
 
 ms3      db      "Hay salud"     
 
+;ejercicio 2
+        org     100h
+
+        mov     ax,2d
+        ;init
+        mov     dl,2d
+        mov     bx,0000h ;acumulador
+        mul     dl
+        mov     bx,ax
+        mov     [di+210h],bx
+        mov     ax,2d
+
+result: mul     bx
+        mov     bx,ax
+        inc     di
+        mov     [di+210h],bx
+        mov     ax,2d
+
+        cmp     di,5d
+        je      result1
+        loop    result
+
+result1:mul     bx
+        mov     bx,ax
+        inc     di
+        mov     [di+210h],bx
+        inc     di
+        mov     ax,2d
+
+        loop    result1
+
+        int 20h
