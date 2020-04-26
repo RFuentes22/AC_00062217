@@ -1,15 +1,15 @@
 ;ejercicio 1
         org     100h
 
-        mov	ax,6d   ;62217
-	mov	bx,2d
-	add     ax,bx
-	add     ax,bx
-	mov	bx,1d
+        mov	    ax,6d   ;62217
+	    mov	    bx,2d
+	    add     ax,bx
+	    add     ax,bx
+	    mov 	bx,1d
         add     ax,bx
-        mov	bx,7d
+        mov	    bx,7d
         add     ax,bx
-	mov	bx,5d
+	    mov 	bx,5d
         div     bx
         mov     bx,0000h
         ;compara
@@ -18,12 +18,12 @@
 
 
 
-result3: mov     bl,[ms3+di]
-         mov     [di+200h],bl
-         inc     di
-         loop    result3
+result3:mov     bl,[ms3+di]
+        mov     [di+200h],bl
+        inc     di
+        loop    result3
         
-         int 20h
+        int 20h
 
 section .data
 
@@ -60,4 +60,37 @@ result1:mul     bx
 
         loop    result1
 
+        int 20h
+
+;ejercicio 3
+        org     100h
+
+        mov     ax,0d
+        mov     [220h], ax ;p0 = 0
+        mov     bx, 1d
+        mov     [221h], bx ;p1 = 1
+
+        add     bx, ax
+        mov     cx, 0d
+        mov     di, 0d ;Iterator
+
+fibo:   mov     cx, ax
+        add     cx, bx
+        mov     [222h + di], cx
+        mov     ax, bx
+        mov     bx, cx
+    
+        cmp     di,11d
+        je      fin
+
+        inc     di
+        
+
+        cmp     di, 16
+        jb      fibo
+
+fin:    inc     di
+        mov     cx, ax
+        add     cx, bx
+        mov     [222h + di], cx
         int 20h
