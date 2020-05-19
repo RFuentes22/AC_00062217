@@ -1,15 +1,15 @@
 ;ejercicio 1
         org     100h
 
-        mov	    ax,6d   ;62217
-	    mov	    bx,2d
-	    add     ax,bx
-	    add     ax,bx
-	    mov 	bx,1d
+        mov	ax,6d   ;62217
+	mov	bx,2d
+	add     ax,bx
+	add     ax,bx
+	mov     bx,1d
         add     ax,bx
-        mov	    bx,7d
+        mov	bx,7d
         add     ax,bx
-	    mov 	bx,5d
+	mov 	bx,5d
         div     bx
         mov     bx,0000h
         ;compara
